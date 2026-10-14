@@ -1,0 +1,31 @@
+server:
+  port: 5001
+
+jwt:
+  secret: "c474bf67b5281a8f9462610d83b97b054238531ae82386296bdaafbfa59a0f44"
+  expiration: 86400000
+
+spring:
+  application:
+    name: user-service
+
+  datasource:
+    url: jdbc:sqlserver://localhost:1433;databaseName=yt_airline_user_db;encrypt=true;trustServerCertificate=true
+    username: hieu
+    password: 123456
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
