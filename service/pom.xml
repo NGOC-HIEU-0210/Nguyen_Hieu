@@ -22,7 +22,7 @@
         <module>eureka-server</module>
         <module>location-service</module>
         <module>user-service</module>
-
+        <module>airline-core-service</module>
         <!-- <module>user-service</module> -->
 <!--        <module>config-server</module>-->
 <!--        <module>api-gateway</module>-->
