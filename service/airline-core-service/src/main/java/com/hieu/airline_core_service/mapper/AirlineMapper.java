@@ -61,4 +61,27 @@ public class AirlineMapper {
                 .support(airline.getSupport())
                 .build();
     }
+
+
+    public static void updateEntity(Airline airline, AirlineRequest request){
+        if (airline == null || request == null) return;
+
+        airline.setIataCode(request.getIataCode());
+        airline.setIcaoCode(request.getIcaoCode());
+        airline.setName(request.getName());
+        airline.setAlias(request.getAlias());
+        airline.setLogoUrl(request.getLogoUrl());
+        airline.setWebsite(request.getWebsite());
+        airline.setStatus(request.getStatus());
+        airline.setAlliance(request.getAlliance());
+        airline.setHeadquartersCityId(request.getHeadquartersCityId());
+
+        if (airline.getSupport() != null){
+            airline.setSupport(new Support());
+        }
+        airline.getSupport().setEmail(request.getSupportEmail());
+        airline.getSupport().setPhone(request.getSupportPhone());
+        airline.getSupport().setHours(request.getSupportHours());
+    }
+
 }

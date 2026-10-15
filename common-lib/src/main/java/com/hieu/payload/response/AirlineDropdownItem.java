@@ -1,5 +1,14 @@
 package com.hieu.payload.response;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class AirlineDropdownItem {
     private Long id;
     private String name;
