@@ -13,6 +13,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -24,6 +25,7 @@ public class AirlineServiceImpl implements AirlineService {
     @Override
     public AirlineResponse createAirport(AirlineRequest request, Long ownerId) {
         Airline airline = AirlineMapper.toEntity(request,ownerId);
+//        airline.setCreatedAt(LocalDateTime.now());
         Airline savedAirline = airlineRepository.save(airline);
         return AirlineMapper.toResponse(savedAirline);
     }
