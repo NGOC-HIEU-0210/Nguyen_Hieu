@@ -26,8 +26,8 @@ public class AirlineMapper {
                 .build();
 
         if (request.getSupportEmail() != null
-        || request.getSupportPhone() != null
-        || request.getSupportHours() != null){
+                || request.getSupportPhone() != null
+                || request.getSupportHours() != null){
             airline.setSupport(
                     Support.builder()
                             .email(request.getSupportEmail())
@@ -76,7 +76,7 @@ public class AirlineMapper {
         airline.setAlliance(request.getAlliance());
         airline.setHeadquartersCityId(request.getHeadquartersCityId());
 
-        if (airline.getSupport() != null){
+        if (airline.getSupport() == null){
             airline.setSupport(new Support());
         }
         airline.getSupport().setEmail(request.getSupportEmail());

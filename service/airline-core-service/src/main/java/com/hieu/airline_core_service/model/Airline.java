@@ -1,6 +1,5 @@
 package com.hieu.airline_core_service.model;
 
-
 import com.hieu.embeddable.Support;
 import com.hieu.enums.AirlineStatus;
 import jakarta.persistence.*;
@@ -12,22 +11,22 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import java.time.Instant;
 
 @Entity
-@Setter
 @Getter
+@Setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @EntityListeners(AuditingEntityListener.class)
 public class Airline {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    @Column(updatable = false, nullable = false)
     private Long id;
 
-    @Column(unique = true,nullable = false)
+    @Column(unique = true, nullable = false, length = 2)
     private String iataCode;
 
-    @Column(unique = true,nullable = false)
+    @Column(unique = true, nullable = false, length = 3)
     private String icaoCode;
 
 
@@ -39,18 +38,24 @@ public class Airline {
 
     @Embedded
     private Support support;
+
     private String alias;
 
+    @Column(length = 500)
     private String logoUrl;
 
     private String website;
 
+    @Builder.Default
     @Enumerated(EnumType.STRING)
-    private AirlineStatus status =AirlineStatus.ACTIVE;
+    @Column(length = 20)
+    private AirlineStatus status = AirlineStatus.ACTIVE;
 
     private String alliance;
 
+
     private Long headquartersCityId;
+
 
     private Long updateById;
 
@@ -59,8 +64,14 @@ public class Airline {
     private Instant createdAt;
 
     @LastModifiedDate
-    @Column( nullable = false)
+    @Column(nullable = false)
     private Instant updatedAt;
 
 
+    @PrePersist
+    void applyDefaults() {
+        if (status == null) {
+            status = AirlineStatus.ACTIVE;
+        }
+    }
 }

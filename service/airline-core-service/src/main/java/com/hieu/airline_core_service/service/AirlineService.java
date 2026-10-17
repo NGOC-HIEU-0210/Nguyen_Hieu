@@ -10,15 +10,13 @@ import org.springframework.data.domain.Pageable;
 import java.util.List;
 
 public interface AirlineService {
-    AirlineResponse createAirport(AirlineRequest request, Long ownerId);
-    AirlineResponse getAirlineByOwner(Long ownerId) throws Exception;
-    AirlineResponse updateAirline(AirlineRequest request, Long ownerId) throws Exception;
+    AirlineResponse createAirline(AirlineRequest request, Long ownerId) throws Exception;
+    List<AirlineResponse> getAirlinesByOwner(Long ownerId);
+    AirlineResponse updateAirline(Long id, AirlineRequest request, Long ownerId) throws Exception;
     AirlineResponse getAirlineById(Long id) throws Exception;
     Page<AirlineResponse> getAllAirline(Pageable pageable);
     void deleteAirline(Long id, Long ownerId) throws Exception;
 
     AirlineResponse changeStatusByAdmin(Long airlineId, AirlineStatus status) throws Exception;
     List<AirlineDropdownItem> getAirlineDropdown();
-
-
 }

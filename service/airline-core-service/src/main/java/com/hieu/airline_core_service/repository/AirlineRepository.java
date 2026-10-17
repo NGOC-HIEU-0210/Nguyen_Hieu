@@ -9,6 +9,15 @@ import java.util.Optional;
 
 public interface AirlineRepository extends JpaRepository<Airline, Long> {
 
-    Optional<Airline> findByOwnerId(Long ownerId);
+    // 1 owner có thể có nhiều airline
+    List<Airline> findByOwnerId(Long ownerId);
+
+    // Lấy airline theo id và bắt buộc phải thuộc owner (kiểm tra quyền)
+    Optional<Airline> findByIdAndOwnerId(Long id, Long ownerId);
+
     List<Airline> findByStatus(AirlineStatus status);
+
+    boolean existsByIataCode(String iataCode);
+
+    boolean existsByIcaoCode(String icaoCode);
 }
