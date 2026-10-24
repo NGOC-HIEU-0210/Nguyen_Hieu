@@ -1,13 +1,29 @@
 package com.hieu.repository;
 
 import com.hieu.model.Flight;
-import com.hieu.payload.response.FlightResponse;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+
+import java.util.Optional;
 
 public interface FlightRepository extends JpaRepository<Flight, Long> {
 
-    Page<Flight> findByAirlineId(String airlineId, Pageable pageable);
+    @Query("select f from Flight f\n" +
+            "            where f.airlineId = :airlineId\n" +
+            "            and (:depId is null or f.departureAirportId = :depId)\n" +
+            "            and (:arrId is null or f.arrivalAirportId = :arrId)"
+    )
+    Page<Flight> findByAirlineId(
+            @Param("airlineId") Long airlineId,
+            @Param("depId") Long depId,
+            @Param("arrId") Long arrId,
+            Pageable pageable
+    );
 
+    boolean existsByFlightNumber(String flightNumber);
+    boolean existsByFlightNumberAndIdNot(String flightNumber, Long id);
+    Optional<Flight> findByAirlineIdAndId(Long airlineId, Long id);
 }
