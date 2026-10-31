@@ -24,6 +24,7 @@
         <module>user-service</module>
         <module>airline-core-service</module>
         <module>flight-ops-service</module>
+        <module>pricing-service</module>
         <!-- <module>user-service</module> -->
 <!--        <module>config-server</module>-->
 <!--        <module>api-gateway</module>-->
