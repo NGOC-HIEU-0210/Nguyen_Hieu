@@ -1,4 +1,4 @@
-package com.zosh.common_lib.payload.request;
+package com.hieu.payload.request;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PositiveOrZero;

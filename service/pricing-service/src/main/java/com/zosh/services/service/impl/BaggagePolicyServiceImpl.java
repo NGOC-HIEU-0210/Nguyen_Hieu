@@ -1,7 +1,7 @@
 package com.zosh.services.service.impl;
 
-import com.zosh.common_lib.payload.request.BaggagePolicyRequest;
-import com.zosh.common_lib.payload.response.BaggagePolicyResponse;
+import com.hieu.payload.request.BaggagePolicyRequest;
+import com.hieu.payload.response.BaggagePolicyResponse;
 import com.zosh.services.mapper.BaggagePolicyMapper;
 import com.zosh.services.model.BaggagePolicy;
 import com.zosh.services.model.Fare;

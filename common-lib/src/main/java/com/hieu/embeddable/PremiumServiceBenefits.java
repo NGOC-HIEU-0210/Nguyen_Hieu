@@ -15,6 +15,6 @@ import lombok.Setter;
 @Setter
 public class PremiumServiceBenefits {
 
-    private Boolean loungeAccess;
-    private Boolean airportTransfer;
+    private Boolean loungeAccess = false;
+    private Boolean airportTransfer = false;
 }

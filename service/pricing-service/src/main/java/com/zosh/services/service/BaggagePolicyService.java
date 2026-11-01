@@ -2,8 +2,8 @@ package com.zosh.services.service;
 
 
 
-import com.zosh.common_lib.payload.request.BaggagePolicyRequest;
-import com.zosh.common_lib.payload.response.BaggagePolicyResponse;
+import com.hieu.payload.request.BaggagePolicyRequest;
+import com.hieu.payload.response.BaggagePolicyResponse;
 
 import java.util.List;
 

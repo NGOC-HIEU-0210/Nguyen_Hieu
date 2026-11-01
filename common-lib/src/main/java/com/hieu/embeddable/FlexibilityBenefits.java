@@ -15,7 +15,7 @@ import lombok.Setter;
 @Setter
 public class FlexibilityBenefits {
 
-    private Boolean freeDateChange;
-    private Boolean partialRefund;
-    private Boolean fullRefund;
+    private Boolean freeDateChange = false;
+    private Boolean partialRefund = false;
+    private Boolean fullRefund = false;
 }

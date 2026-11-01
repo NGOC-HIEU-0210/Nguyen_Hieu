@@ -1,8 +1,9 @@
 package com.zosh.services.service.impl;
 
 
-import com.zosh.common_lib.payload.request.FareRequest;
-import com.zosh.common_lib.payload.response.FareResponse;
+
+import com.hieu.payload.request.FareRequest;
+import com.hieu.payload.response.FareResponse;
 import com.zosh.services.mapper.FareMapper;
 import com.zosh.services.model.Fare;
 import com.zosh.services.repository.FareRepository;

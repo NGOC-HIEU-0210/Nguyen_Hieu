@@ -1,4 +1,4 @@
-package com.zosh.common_lib.payload.response;
+package com.hieu.payload.response;
 
 import com.zosh.common_lib.enums.CabinClassType;
 

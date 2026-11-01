@@ -1,8 +1,7 @@
 package com.zosh.services.controller;
 
-import com.zosh.common_lib.enums.CabinClassType;
-import com.zosh.common_lib.payload.request.FareRequest;
-import com.zosh.common_lib.payload.response.FareResponse;
+import com.hieu.payload.request.FareRequest;
+import com.hieu.payload.response.FareResponse;
 import com.zosh.services.service.FareService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

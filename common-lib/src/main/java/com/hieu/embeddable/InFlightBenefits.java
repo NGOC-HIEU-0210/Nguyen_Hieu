@@ -15,9 +15,9 @@ import lombok.Setter;
 @Setter
 public class InFlightBenefits {
 
-    private Boolean complimentaryMeals;
-    private Boolean premiumMealChoice;
-    private Boolean inFlightInternet;
-    private Boolean inFlightEntertainment;
-    private Boolean complimentaryBeverages;
+    private Boolean complimentaryMeals = false;
+    private Boolean premiumMealChoice = false;
+    private Boolean inFlightInternet = false;
+    private Boolean inFlightEntertainment = false;
+    private Boolean complimentaryBeverages = false;
 }

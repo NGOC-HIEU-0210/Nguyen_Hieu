@@ -1,7 +1,7 @@
 package com.zosh.services.controller;
 
-import com.zosh.common_lib.payload.request.BaggagePolicyRequest;
-import com.zosh.common_lib.payload.response.BaggagePolicyResponse;
+import com.hieu.payload.request.BaggagePolicyRequest;
+import com.hieu.payload.response.BaggagePolicyResponse;
 import com.zosh.services.service.BaggagePolicyService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

@@ -1,8 +1,9 @@
 package com.zosh.services.service;
 
 
-import com.zosh.common_lib.payload.request.FareRequest;
-import com.zosh.common_lib.payload.response.FareResponse;
+
+import com.hieu.payload.request.FareRequest;
+import com.hieu.payload.response.FareResponse;
 import com.zosh.services.model.Fare;
 
 
@@ -31,16 +32,7 @@ public interface FareService {
 
     List<Fare> getFares();
 
-    /**
-     * Returns the cheapest fare per flight for the given cabin class.
-     * Used by flight-ops-service to apply price range filtering during search
-     * without a cross-service join.
-     *
-     * @param flightIds  flight IDs to query (matches FlightInstance.flight.id)
-     * @param cabinClassId the requested cabin class
-     * @return map of flightId → cheapest FareResponse for that cabin class;
-     *         flights with no fare for the given cabin class are absent from the map
-     */
+
     Map<Long, FareResponse> getLowestFarePerFlight(
             List<Long> flightIds, Long cabinClassId);
 

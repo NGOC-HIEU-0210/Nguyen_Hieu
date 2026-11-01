@@ -1,8 +1,9 @@
 package com.zosh.services.service;
 
-import com.zosh.common_lib.payload.request.FareRulesRequest;
-import com.zosh.common_lib.payload.response.FareRulesResponse;
 
+
+import com.hieu.payload.request.FareRulesRequest;
+import com.hieu.payload.response.FareRulesResponse;
 
 import java.util.List;
 

@@ -15,8 +15,8 @@ import lombok.Setter;
 @Setter
 public class SeatBenefits {
 
-    private Boolean extraSeatSpace;
-    private Boolean preferredSeatChoice;
-    private Boolean advanceSeatSelection;
-    private Boolean guaranteedSeatTogether;
+    private Boolean extraSeatSpace = false;
+    private Boolean preferredSeatChoice = false;
+    private Boolean advanceSeatSelection = false;
+    private Boolean guaranteedSeatTogether = false;
 }
