@@ -1,7 +1,8 @@
 package com.zosh.services.model;
 
 import com.hieu.embeddable.*;
-import com.zosh.common_lib.enums.CabinClassType;
+
+import com.hieu.enums.CabinClassType;
 import jakarta.persistence.*;
 import lombok.*;
 

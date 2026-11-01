@@ -1,6 +1,6 @@
 package com.zosh.services.repository;
 
-import com.zosh.common_lib.enums.CabinClassType;
+import com.hieu.enums.CabinClassType;
 import com.zosh.services.model.Fare;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

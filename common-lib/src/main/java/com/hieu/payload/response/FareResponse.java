@@ -1,6 +1,6 @@
 package com.hieu.payload.response;
 
-import com.zosh.common_lib.enums.CabinClassType;
+import com.hieu.enums.CabinClassType;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

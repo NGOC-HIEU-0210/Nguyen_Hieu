@@ -1,4 +1,4 @@
-package com.zosh.common_lib.enums;
+package com.hieu.enums;
 
 public enum CabinClassType {
     ECONOMY,
