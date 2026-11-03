@@ -26,6 +26,7 @@
         <module>flight-ops-service</module>
         <module>pricing-service</module>
         <module>seat-service</module>
+        <module>ancillary-service</module>
         <!-- <module>user-service</module> -->
 <!--        <module>config-server</module>-->
 <!--        <module>api-gateway</module>-->
