@@ -5,10 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-/**
- * Metadata for BAGGAGE type ancillaries.
- * Follows IATA standards for baggage handling.
- */
+
 @Data
 @Builder
 @NoArgsConstructor
