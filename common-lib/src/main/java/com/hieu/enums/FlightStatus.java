@@ -1,6 +1,7 @@
 package com.hieu.enums;
 
 public enum FlightStatus {
+
     SCHEDULED,
     BOARDING,
     DEPARTED,
