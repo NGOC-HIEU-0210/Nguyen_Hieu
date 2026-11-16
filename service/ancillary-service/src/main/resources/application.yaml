@@ -11,6 +11,7 @@ spring:
     driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
 
 
+
   jpa:
     hibernate:
       ddl-auto: update

@@ -37,6 +37,7 @@ public class InsuranceCoverageServiceImpl implements InsuranceCoverageService {
         return InsuranceCoverageMapper.toResponse(saved);
     }
 
+
     @Override
     @Transactional
     public List<InsuranceCoverageResponse> createCoveragesBulk(List<InsuranceCoverageRequest> requests)
