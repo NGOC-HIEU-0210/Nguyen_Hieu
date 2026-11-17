@@ -1,3 +1,18 @@
+server:
+  port: 5009
 spring:
   application:
     name: booking-service
+
+  datasource:
+    url: jdbc:sqlserver://localhost:1433;databaseName=yt_airline_booking_db;encrypt=true;trustServerCertificate=true
+    username: hieu
+    password: 123456
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+
+
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
