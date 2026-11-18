@@ -15,6 +15,7 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/airports")
+
 public class AirportController {
     private final AirportService airportService;
 
@@ -28,6 +29,7 @@ public class AirportController {
     }
 
     @GetMapping("/{id}")
+
     public ResponseEntity<AirportResponse> getAirportById(@PathVariable Long id) throws Exception {
         return ResponseEntity.ok(airportService.getAirportById(id));
     }
