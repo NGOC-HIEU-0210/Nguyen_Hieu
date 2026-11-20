@@ -28,7 +28,7 @@ public class PassengerServiceImpl implements PassengerService {
         Passenger passenger = PassengerMapper.toEntity(request);
         passenger.setPrimaryUserId(userId);
         Passenger saved = passengerRepository.save(passenger);
-        return PassengerMapper.toResponse(saved);
+        return saved;
     }
 
     @Override
