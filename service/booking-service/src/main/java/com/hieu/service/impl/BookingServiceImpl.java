@@ -79,32 +79,63 @@ public class BookingServiceImpl implements BookingService {
 
     @Override
     public BookingResponse updateBooking(Long id, BookingRequest request) throws ResourceNotFoundException {
-        return null;
+        Booking booking = bookingRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException(
+                        "Booking not found with ID: " + id));
+
+        Set<Passenger> passengers = new HashSet<>();
+        for (PassengerRequest passengerRequest : request.getPassengers()) {
+            Passenger passenger = passengerService.findOrCreatePassengerEntity(
+                    passengerRequest, booking.getUserId());
+            passengers.add(passenger);
+        }
+
+        BookingMapper.updateEntityFromRequest(request, booking, passengers);
+        Booking updated = bookingRepository.save(booking);
+        return convertToBookingResponse(updated);
     }
 
     @Override
     public BookingResponse getBookingById(Long id) throws ResourceNotFoundException {
-        return null;
+        Booking booking = bookingRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Booking not found"));
+
+        return convertToBookingResponse(booking);
     }
 
     @Override
     public List<BookingResponse> getBookingsByAirline(Long airlineId, String searchQuery, BookingStatus status, Long flightInstanceId, String sortDirection) {
-        return List.of();
+
+        Sort.Direction direction = "asc".equalsIgnoreCase(sortDirection) ? Sort.Direction.ASC : Sort.Direction.DESC;
+        Sort sort = Sort.by(direction, "bookingDate");
+        List<Booking> bookings = bookingRepository.findByAirlineWithFilters(airlineId,
+                searchQuery, status, flightInstanceId, sort);
+        return bookings.stream().map(
+                this :: convertToBookingResponse
+        ).toList();
     }
 
     @Override
     public List<BookingResponse> getBookingsByUser(Long userId) {
-        return List.of();
+        return bookingRepository.findByUserId(userId).stream()
+                .map(this::convertToBookingResponse)
+                .collect(Collectors.toList());
     }
 
     @Override
     public BookingResponse cancelBooking(Long id) throws ResourceNotFoundException {
-        return null;
+        Booking booking = bookingRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Booking not found"));
+        booking.setStatus(BookingStatus.CANCELLED);
+        Booking updated = bookingRepository.save(booking);
+
+        return convertToBookingResponse(updated);
     }
 
     @Override
     public void deleteBooking(Long id) throws ResourceNotFoundException {
-
+        Booking booking = bookingRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException(
+                        "Booking not found with ID: " + id));
+        bookingRepository.delete(booking);
     }
 
     private String generateBookingReference() {
@@ -116,6 +147,26 @@ public class BookingServiceImpl implements BookingService {
         return reference;
     }
 
+    private BookingResponse convertToBookingResponse(Booking booking){
+        List<FlightCabinAncillaryResponse> ancillaryResponses = new ArrayList<>();
+        List<FlightMealResponse> mealResponses = new ArrayList<>();
+        PaymentDTO paymentDTO = new PaymentDTO();
+        FareResponse fareResponse = new FareResponse();
+        FlightResponse flightResponse = new FlightResponse();
+
+        List<SeatInstanceResponse> seatInstanceResponses = new ArrayList<>();
+        FlightInstanceResponce flightInstanceResponse = new FlightInstanceResponce();
+
+        return BookingMapper.toResponse(booking,
+                paymentDTO,
+                fareResponse,
+                flightResponse,
+                flightInstanceResponse,
+                ancillaryResponses,
+                mealResponses,
+                seatInstanceResponses
+        );
+    }
 //    private BookingResponse convertBookingResponse(Booking booking)  {
 //        List<FlightCabinAncillaryResponse> ancillaryResponses=ancillaryClient.getAllByIds(
 //                booking.getAncillaryIds()
